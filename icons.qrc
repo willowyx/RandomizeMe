@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="main">
+    <file>media/logo.png</file>
+  </qresource>
+  <qresource prefix="buttons">
+    <file>media/cross.png</file>
+    <file>media/external.png</file>
+    <file>media/settings.png</file>
+    <file>media/table.png</file>
+  </qresource>
+</RCC>
