@@ -1,10 +1,53 @@
 import os
-import importlib.util
 import sys
 import webbrowser
 from PySide6 import QtWidgets as qtw
+from PySide6.QtWidgets import QMessageBox
 
+from about.aboutview import AboutView
 from prefs.UI.prefs import Ui_PrefsWindow
+import about
+import data
+
+
+def openlists():
+    listfile = data.getlists()
+    # print(listfile)
+    try:
+        os.startfile(listfile)
+    except:
+        QMessageBox.critical(None,"Critical program error", "Could not locate lists.py\n"
+                                                            "Program function may be affected")
+
+
+def opengenlog():
+    logfile = data.getsval()
+    # print(logfile)
+    try:
+        os.startfile(logfile)
+    except:
+        QMessageBox.critical(None,"Critical program error", "Could not locate sval.txt\n"
+                                                            "Program function may be affected")
+
+
+def openrepo():
+    repo = "https://github.com/willowyx/RandomizeMe/releases"
+    webbrowser.open(repo, new=0, autoraise=True)
+
+
+def openrepo_info():
+    repo = "https://github.com/willowyx/RandomizeMe#randomize-me"
+    webbrowser.open(repo, new=0, autoraise=True)
+
+
+def locunins():
+    ufile_path = os.environ["ProgramW6432"]
+    ufile_path += '\\RandomizeMe'
+    try:
+        os.startfile(ufile_path)
+    except:
+        QMessageBox.critical(None,"Program error", "Could not locate uninstaller\n"
+                                                   "Try locating it manually in Program Files")
 
 class PrefsView(qtw.QWidget, Ui_PrefsWindow):
     def __init__(self, *args, **kwargs):
@@ -13,33 +56,21 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
 
         self.quit_btn.clicked.connect(self.close)
 
-        self.open_lists_btn.clicked.connect(self.openlists)
+        self.open_lists_btn.clicked.connect(openlists)
 
-        self.open_genlog_btn.clicked.connect(self.opengenlog)
+        self.open_genlog_btn.clicked.connect(opengenlog)
 
-        self.open_repo_btn.clicked.connect(self.openrepo)
-        self.about_btn.clicked.connect(self.openrepo_info)
+        self.unins_btn.clicked.connect(locunins)
 
-    def getabspath(self, rpath, rname):
-        dirname = os.path.dirname(__file__)
-        parent_dir = os.path.abspath(os.path.join(dirname, os.pardir))
-        textout = os.path.join(parent_dir, rpath, rname)
-        return textout
-    def openlists(self):
-        listfile = self.getabspath('data', 'lists.py')
-        os.startfile(listfile)
+        self.about_btn.clicked.connect(self.showabout)
 
-    def opengenlog(self):
-        logfile = self.getabspath('data', 'sval.txt')
-        os.startfile(logfile)
+        self.update_btn.clicked.connect(openrepo)
+        self.repo_btn.clicked.connect(openrepo_info)
 
-    def openrepo(self):
-        repo = "https://github.com/willowyx/RandomizeMe/releases"
-        webbrowser.open(repo, new=0, autoraise=True)
+    def showabout(self):
+        self.about = AboutView()
+        self.about.show()
 
-    def openrepo_info(self):
-        repo = "https://github.com/willowyx/RandomizeMe#randomize-me"
-        webbrowser.open(repo, new=0, autoraise=True)
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)

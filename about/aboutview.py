@@ -1,5 +1,3 @@
-import os
-import importlib.util
 import sys
 from PySide6 import QtWidgets as qtw
 

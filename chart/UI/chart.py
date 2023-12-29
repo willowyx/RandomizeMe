@@ -26,7 +26,7 @@ class Ui_ChartWindow(object):
             ChartWindow.setObjectName(u"ChartWindow")
         ChartWindow.resize(436, 348)
         icon = QIcon()
-        icon.addFile(u":/main/logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/main/media/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         ChartWindow.setWindowIcon(icon)
         self.gridLayout_2 = QGridLayout(ChartWindow)
         self.gridLayout_2.setObjectName(u"gridLayout_2")

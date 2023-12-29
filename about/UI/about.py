@@ -33,24 +33,50 @@ class Ui_AboutWindow(object):
         AboutWindow.setMinimumSize(QSize(550, 350))
         AboutWindow.setMaximumSize(QSize(700, 350))
         icon = QIcon()
-        icon.addFile(u":/main/logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/main/media/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         AboutWindow.setWindowIcon(icon)
         self.gridLayout_2 = QGridLayout(AboutWindow)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_2.addItem(self.horizontalSpacer, 1, 1, 1, 1)
+
+        self.quit_btn = QPushButton(AboutWindow)
+        self.quit_btn.setObjectName(u"quit_btn")
+        icon1 = QIcon()
+        icon1.addFile(u":/buttons/media/cross.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.quit_btn.setIcon(icon1)
+
+        self.gridLayout_2.addWidget(self.quit_btn, 1, 2, 1, 1)
+
+        self.label_3 = QLabel(AboutWindow)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout_2.addWidget(self.label_3, 1, 0, 1, 1)
+
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
+        self.label = QLabel(AboutWindow)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 30, QSizePolicy.Minimum, QSizePolicy.Maximum)
+
+        self.gridLayout.addItem(self.verticalSpacer, 4, 1, 1, 1)
+
+        self.label_2 = QLabel(AboutWindow)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 1, 1, 1, 1)
+
         self.attribution_text = QTextBrowser(AboutWindow)
         self.attribution_text.setObjectName(u"attribution_text")
         font = QFont()
         font.setFamilies([u"Yu Gothic UI"])
         self.attribution_text.setFont(font)
 
-        self.gridLayout.addWidget(self.attribution_text, 1, 1, 1, 1)
-
-        self.label_2 = QLabel(AboutWindow)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.attribution_text, 2, 1, 1, 1)
 
         self.license_text = QTextBrowser(AboutWindow)
         self.license_text.setObjectName(u"license_text")
@@ -59,24 +85,14 @@ class Ui_AboutWindow(object):
         font1.setPointSize(10)
         self.license_text.setFont(font1)
 
-        self.gridLayout.addWidget(self.license_text, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.license_text, 2, 0, 1, 1)
 
-        self.label = QLabel(AboutWindow)
-        self.label.setObjectName(u"label")
+        self.verticalSpacer_2 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Maximum)
 
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-
-        self.quit_btn = QPushButton(AboutWindow)
-        self.quit_btn.setObjectName(u"quit_btn")
-
-        self.gridLayout.addWidget(self.quit_btn, 3, 1, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 2, 1, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer_2, 0, 1, 1, 1)
 
 
-        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 3)
 
 
         self.retranslateUi(AboutWindow)
@@ -86,6 +102,10 @@ class Ui_AboutWindow(object):
 
     def retranslateUi(self, AboutWindow):
         AboutWindow.setWindowTitle(QCoreApplication.translate("AboutWindow", u"About | Randomize Me", None))
+        self.quit_btn.setText(QCoreApplication.translate("AboutWindow", u" close", None))
+        self.label_3.setText(QCoreApplication.translate("AboutWindow", u"Randomize Me! ver. 1", None))
+        self.label.setText(QCoreApplication.translate("AboutWindow", u"License", None))
+        self.label_2.setText(QCoreApplication.translate("AboutWindow", u"Attributions", None))
         self.attribution_text.setHtml(QCoreApplication.translate("AboutWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -108,7 +128,6 @@ class Ui_AboutWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">table icon</span><span style=\" font-size:10pt; font-wei"
                         "ght:700; font-style:italic;\"> </span><span style=\" font-size:10pt;\">(SIL Open Font License): Dave Gandy (https://www.iconfinder.com/icons/1608863/table_icon)</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">filter icon</span><span style=\" font-size:10pt;\"> (Apache 2.0): akveo (https://icon-icons.com/users/2j7Ni9Qgct0HtmWmLGnLj/icon-sets/)</span></p></body></html>", None))
-        self.label_2.setText(QCoreApplication.translate("AboutWindow", u"Attributions", None))
         self.license_text.setHtml(QCoreApplication.translate("AboutWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -118,30 +137,28 @@ class Ui_AboutWindow(object):
 "</style></head><body style=\" font-family:'Yu Gothic UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">MIT License</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Copyright (c) 2023 willowyx</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-b"
-                        "ottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Copyright (c) 2023 willow</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bot"
+                        "tom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Permission is hereby granted, free of charge, to any person obtaining a copy</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">of this software and associated documentation files (the &quot;Software&quot;), to deal</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">in the Software without restriction, including without limitation the rights</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-i"
-                        "ndent:0; text-indent:0px;\">copies of the Software, and to permit persons to whom the Software is</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-ind"
+                        "ent:0; text-indent:0px;\">copies of the Software, and to permit persons to whom the Software is</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">furnished to do so, subject to the following conditions:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The above copyright notice and this permission notice shall be included in all</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">copies or substantial portions of the Software.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px"
-                        "; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</p>\n"
+"<p style=\" margin-top:0px; "
+                        "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</p>\n"
-"<p style=\" margin-top:"
-                        "0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</p>\n"
+"<p style=\" margin-top:0p"
+                        "x; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">SOFTWARE.</p></body></html>", None))
-        self.label.setText(QCoreApplication.translate("AboutWindow", u"License", None))
-        self.quit_btn.setText(QCoreApplication.translate("AboutWindow", u"close", None))
     # retranslateUi
 

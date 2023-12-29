@@ -1,25 +1,22 @@
 import sys
-import importlib.util
 import os
+import importlib.resources
 from PySide6 import QtWidgets as qtw
-from PySide6.QtWidgets import QApplication
+# from PySide6.QtWidgets import QApplication
 
 from chart.chartview import ChartView
 from about.aboutview import AboutView
 from prefs.prefsview import PrefsView
 from main.UI.main import Ui_MainWindow
+from genedit import generator
+import data
 
-def import_module(mname, rpath):
-    dir_path = os.path.join(os.path.dirname(__file__), rpath)
-    module_file = os.path.join(dir_path, f'{mname}.py')
-    spec = importlib.util.spec_from_file_location(mname, module_file)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+def load_resource(package, resource_name):
+    return importlib.resources.read_text(package, resource_name)
 
 
-generator = import_module('generator', '../genedit/')
-cview = import_module('chartview', '../chart/')
+# load_resource('genedit', 'generator')
+# load_resource('chart', 'chartview')
 
 class Randomize(qtw.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -40,22 +37,15 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
         self.chart = None
 
         self.actionAbout.triggered.connect(self.showabout)
-        self.about_btn.clicked.connect(self.showabout)
 
         self.actionPreferences.triggered.connect(self.showprefs)
         self.prefs_btn.clicked.connect(self.showprefs)
-
-    def getabspath(self, rpath, rname):
-        dirname = os.path.dirname(__file__)
-        parent_dir = os.path.abspath(os.path.join(dirname, os.pardir))
-        textout = os.path.join(parent_dir, rpath, rname)
-        return textout
 
     def getoutput(self, nogensval):
         self.text_output.setText(generator.returnstr(nogensval))
 
     def getsval(self):
-        with open(self.getabspath('data', 'sval.txt'), 'r') as f:
+        with open(data.getsval(), 'r') as f:
             f.seek(0, os.SEEK_END)
             pos = f.tell() - 2
             while pos > 0 and f.read(1) != '\n':

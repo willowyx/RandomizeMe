@@ -14,8 +14,8 @@
    <string>Chart viewer | Randomize Me</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>:/main/logo.png</normaloff>:/main/logo.png</iconset>
+   <iconset resource="../../icons.qrc">
+    <normaloff>:/main/media/logo.png</normaloff>:/main/media/logo.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">

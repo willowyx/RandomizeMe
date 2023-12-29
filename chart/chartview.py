@@ -8,16 +8,11 @@ from PySide6 import QtWidgets as qtw
 
 from chart.UI.chart import Ui_ChartWindow
 
-def import_module(mname, rpath):
-    dir_path = os.path.join(os.path.dirname(__file__), rpath)
-    module_file = os.path.join(dir_path, f'{mname}.py')
-    spec = importlib.util.spec_from_file_location(mname, module_file)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+module_path = os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+spec = importlib.util.spec_from_file_location('lists', module_path)
+lists = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(lists)
 
-
-lists = import_module('lists', '../data/')
 
 class ChartView(qtw.QWidget, Ui_ChartWindow):
     def __init__(self, *args, **kwargs):
