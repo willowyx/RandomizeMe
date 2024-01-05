@@ -1,26 +1,11 @@
 import os
 import sys
 import webbrowser
-import data
 import subprocess
+import data
 from PySide6 import QtWidgets as qtw
 
 from prefs.UI.prefs import Ui_PrefsWindow
-
-
-def prefscan(value):
-    import re
-    import main.app
-    if value == 'uwu':
-        with open(data.getModulePath('prefs'), 'r') as file:
-            contents = file.read()
-            match = re.search(r'PREFS_UWU=(\d+)', contents)
-            if match:
-                uwu_value = match.group(1)
-                if uwu_value == 1:
-                    main.app.Randomize().uwuify()
-                    PrefsView().setuwucheck(1)
-
 
 class PrefsView(qtw.QWidget, Ui_PrefsWindow):
     def __init__(self, *args, **kwargs):
@@ -65,7 +50,7 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
                 ufile_path += '\\RandomizeMe'
                 try:
                     os.startfile(ufile_path)
-                    self.restart_label.setText('You MUST quit the app before uninstalling')
+                    self.restart_label.setText('You must quit the app before uninstalling')
                 except:
                     self.restart_label.setText('could not locate directory')
             elif data.getsysname() == 'Darwin':
@@ -91,12 +76,11 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
         if self.uwuify_btn.isChecked():
             with open(data.getModulePath('prefs'), 'w') as f:
                 f.write('PREFS_UWU=1\n')
-                print('PREFS_UWU=1')
                 f.close()
-        elif not self.uwuify_btn.isChecked():
+        # elif not self.uwuify_btn.isChecked():
+        else:
             with open(data.getModulePath('prefs'), 'w') as f:
                 f.write('PREFS_UWU=0\n')
-                print('PREFS_UWU=0')
                 f.close()
         self.restart_label.setText('restart the app to see what you\'ve done')
 
@@ -105,9 +89,9 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
         self.about = AboutView()
         self.about.show()
 
-    def setuwucheck(self, val):
-        if val == 1:
-            self.uwuify_btn.toggle()
+    def setuwucheck(self):
+        print('setuwucheck')
+        self.uwuify_btn.setChecked(True)
 
 
 if __name__ == '__main__':

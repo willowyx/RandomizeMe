@@ -10,6 +10,6 @@ The following media were used in this software:
 
 construction worker (CC BY 2.0 DEED): Tony Alter (https://www.flickr.com/people/78428166@N00)
 cross icon (CC BY 4.0 DEED): Situ Herrera (https://icon-icons.com/users/8KiWgJSvFL3JcLJ5k5IqX/icon-sets/)
-external icon (Flaticon license): Vaadin (https://www.flaticon.com/authors/vaadin)
+external icon ("Flaticon license"): Vaadin (https://www.flaticon.com/authors/vaadin)
 table icon (SIL Open Font License): Dave Gandy (https://www.iconfinder.com/icons/1608863/table_icon)
 filter icon (Apache 2.0): akveo (https://icon-icons.com/users/2j7Ni9Qgct0HtmWmLGnLj/icon-sets/)

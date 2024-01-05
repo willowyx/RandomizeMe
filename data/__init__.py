@@ -20,9 +20,9 @@ def getModulePath(fname):
             return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/sval.txt')
     elif fname == 'prefs':
         if getsysname() == 'Windows':
-            return os.path.join(os.getenv('appdata'), 'RandomizeMe/prefs.uwu')
+            return os.path.join(os.getenv('appdata'), 'RandomizeMe/prefs.txt')
         elif getsysname() == 'Darwin':
-            return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/prefs.uwu')
+            return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/prefs.txt')
 
 
 module_path = getModulePath('lists')
