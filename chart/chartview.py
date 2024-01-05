@@ -40,6 +40,11 @@ class ChartView(qtw.QWidget, Ui_ChartWindow):
         self.ListsView.setModel(model)
         self.ListsView.show()
 
+    def uwuify_chart(self):
+        self.label.setText('these vawues can be edited in s-settings')
+        self.quit_btn.setText('cwose')
+        self.setWindowTitle('chawt viewer | wandomize me')
+
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)

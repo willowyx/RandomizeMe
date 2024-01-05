@@ -3,12 +3,18 @@ from PySide6 import QtWidgets as qtw
 
 from about.UI.about import Ui_AboutWindow
 
+
 class AboutView(qtw.QWidget, Ui_AboutWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
 
         self.quit_btn.clicked.connect(self.close)
+
+    def uwuify_about(self):
+        self.quit_btn.setText('cwose')
+        self.setWindowTitle('about | wandomize me')
+
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)

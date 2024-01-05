@@ -5,6 +5,7 @@ import subprocess
 import data
 from PySide6 import QtWidgets as qtw
 
+import main.app
 from prefs.UI.prefs import Ui_PrefsWindow
 
 class PrefsView(qtw.QWidget, Ui_PrefsWindow):
@@ -72,6 +73,20 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
 
         self.uwuify_btn.stateChanged.connect(self.state_changed)
 
+    def uwuify_prefs(self):
+        self.label.setText('p-pwefewences')
+        self.label_2.setText('edit wists')
+        self.label_3.setText('u-updates')
+        self.label_4.setText('u-uninstall')
+        self.label_5.setText('g-genewation wog')
+        self.restart_label.setText('some c-changes may wequire a-app westawt')
+        self.quit_btn.setText('cwose')
+        self.repo_btn.setText('open wepositowy')
+        self.about_btn.setText('about this pwoject')
+        self.update_btn.setText('view weweases')
+        self.unins_btn.setText('w-wocate uninstawwew')
+        self.setWindowTitle('pwefewences | wandomize me')
+
     def state_changed(self):
         if self.uwuify_btn.isChecked():
             with open(data.getModulePath('prefs'), 'w') as f:
@@ -87,11 +102,12 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
     def showabout(self):
         from about.aboutview import AboutView
         self.about = AboutView()
+        print('loaded no window data for about: uwu (expected)')
         self.about.show()
 
     def setuwucheck(self):
-        print('setuwucheck')
         self.uwuify_btn.setChecked(True)
+        print('loaded prefs data for: uwu')
 
 
 if __name__ == '__main__':
