@@ -1,14 +1,19 @@
 import os
 import sys
+import data
 import importlib.util
 from itertools import zip_longest
 from PySide6.QtWidgets import QApplication, QTableView
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from PySide6 import QtWidgets as qtw
-
 from chart.UI.chart import Ui_ChartWindow
 
-module_path = os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+module_path = ''
+if data.getsysname() == 'Windows':
+    module_path = os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+elif data.getsysname() == 'Darwin':
+    module_path = os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/lists.py')
+
 spec = importlib.util.spec_from_file_location('lists', module_path)
 lists = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(lists)

@@ -1,58 +1,76 @@
 import os
 import sys
 import webbrowser
-from PySide6 import QtWidgets as qtw
-from PySide6.QtWidgets import QMessageBox
-
-from about.aboutview import AboutView
-from prefs.UI.prefs import Ui_PrefsWindow
-import about
 import data
+import subprocess
+from PySide6 import QtWidgets as qtw
+
+from prefs.UI.prefs import Ui_PrefsWindow
 
 
-def openlists():
-    listfile = data.getlists()
-    # print(listfile)
-    try:
-        os.startfile(listfile)
-    except:
-        QMessageBox.critical(None,"Critical program error", "Could not locate lists.py\n"
-                                                            "Program function may be affected")
+def prefscan(value):
+    import re
+    import main.app
+    if value == 'uwu':
+        with open(data.getModulePath('prefs'), 'r') as file:
+            contents = file.read()
+            match = re.search(r'PREFS_UWU=(\d+)', contents)
+            if match:
+                uwu_value = match.group(1)
+                if uwu_value == 1:
+                    main.app.Randomize().uwuify()
+                    PrefsView().setuwucheck(1)
 
-
-def opengenlog():
-    logfile = data.getsval()
-    # print(logfile)
-    try:
-        os.startfile(logfile)
-    except:
-        QMessageBox.critical(None,"Critical program error", "Could not locate sval.txt\n"
-                                                            "Program function may be affected")
-
-
-def openrepo():
-    repo = "https://github.com/willowyx/RandomizeMe/releases"
-    webbrowser.open(repo, new=0, autoraise=True)
-
-
-def openrepo_info():
-    repo = "https://github.com/willowyx/RandomizeMe#randomize-me"
-    webbrowser.open(repo, new=0, autoraise=True)
-
-
-def locunins():
-    ufile_path = os.environ["ProgramW6432"]
-    ufile_path += '\\RandomizeMe'
-    try:
-        os.startfile(ufile_path)
-    except:
-        QMessageBox.critical(None,"Program error", "Could not locate uninstaller\n"
-                                                   "Try locating it manually in Program Files")
 
 class PrefsView(qtw.QWidget, Ui_PrefsWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
+
+        def openlists():
+            listfile = data.getModulePath('lists')
+            # print(listfile)
+            try:
+                if data.getsysname() == 'Windows':
+                    os.startfile(listfile)
+                elif data.getsysname() == 'Darwin':
+                    subprocess.call(['open', listfile])
+                self.restart_label.setText('changes will apply after app restart')
+            except:
+                self.restart_label.setText('could not locate file')
+
+        def opengenlog():
+            logfile = data.getModulePath('sval')
+            # print(logfile)
+            try:
+                if data.getsysname() == 'Windows':
+                    os.startfile(logfile)
+                elif data.getsysname() == 'Darwin':
+                    subprocess.call(['open', logfile])
+            except:
+                self.restart_label.setText('could not locate file')
+
+        def openrepo():
+            repo = "https://github.com/willowyx/RandomizeMe/releases"
+            webbrowser.open(repo, new=0, autoraise=True)
+
+        def openrepo_info():
+            repo = "https://github.com/willowyx/RandomizeMe#randomize-me"
+            webbrowser.open(repo, new=0, autoraise=True)
+
+        def locunins():
+            ufile_path = ''
+            if data.getsysname() == 'Windows':
+                ufile_path = os.environ["ProgramW6432"]
+                ufile_path += '\\RandomizeMe'
+                try:
+                    os.startfile(ufile_path)
+                    self.restart_label.setText('You MUST quit the app before uninstalling')
+                except:
+                    self.restart_label.setText('could not locate directory')
+            elif data.getsysname() == 'Darwin':
+                # return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/unins.app')
+                self.restart_label.setText('uninstaller does not exist')
 
         self.quit_btn.clicked.connect(self.close)
 
@@ -67,9 +85,29 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
         self.update_btn.clicked.connect(openrepo)
         self.repo_btn.clicked.connect(openrepo_info)
 
+        self.uwuify_btn.stateChanged.connect(self.state_changed)
+
+    def state_changed(self):
+        if self.uwuify_btn.isChecked():
+            with open(data.getModulePath('prefs'), 'w') as f:
+                f.write('PREFS_UWU=1\n')
+                print('PREFS_UWU=1')
+                f.close()
+        elif not self.uwuify_btn.isChecked():
+            with open(data.getModulePath('prefs'), 'w') as f:
+                f.write('PREFS_UWU=0\n')
+                print('PREFS_UWU=0')
+                f.close()
+        self.restart_label.setText('restart the app to see what you\'ve done')
+
     def showabout(self):
+        from about.aboutview import AboutView
         self.about = AboutView()
         self.about.show()
+
+    def setuwucheck(self, val):
+        if val == 1:
+            self.uwuify_btn.toggle()
 
 
 if __name__ == '__main__':

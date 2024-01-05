@@ -1,29 +1,31 @@
 import os
+import platform
 import importlib.util
-module_path = os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+
+
+def getsysname():
+    return platform.system()
+
+
+def getModulePath(fname):
+    if fname == 'lists':
+        if getsysname() == 'Windows':
+            return os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+        elif getsysname() == 'Darwin':
+            return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/lists.py')
+    elif fname == 'sval':
+        if getsysname() == 'Windows':
+            return os.path.join(os.getenv('appdata'), 'RandomizeMe/sval.txt')
+        elif getsysname() == 'Darwin':
+            return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/sval.txt')
+    elif fname == 'prefs':
+        if getsysname() == 'Windows':
+            return os.path.join(os.getenv('appdata'), 'RandomizeMe/prefs.uwu')
+        elif getsysname() == 'Darwin':
+            return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/prefs.uwu')
+
+
+module_path = getModulePath('lists')
 spec = importlib.util.spec_from_file_location('lists', module_path)
 lists = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(lists)
-
-def getsval():
-    appdata_path = os.getenv('appdata')
-    folder_path = os.path.join(appdata_path, 'RandomizeMe')
-    file_path = os.path.join(folder_path, 'sval.txt')
-
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-
-    if not os.path.isfile(file_path):
-        open(file_path, 'a').close()
-
-    return file_path
-
-def getlists():
-    appdata_path = os.getenv('appdata')
-    folder_path = os.path.join(appdata_path, 'RandomizeMe')
-    file_path = os.path.join(folder_path, 'lists.py')
-
-    if not os.path.isfile(file_path):
-        open(file_path, 'a').close()
-
-    return file_path

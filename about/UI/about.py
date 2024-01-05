@@ -103,7 +103,7 @@ class Ui_AboutWindow(object):
     def retranslateUi(self, AboutWindow):
         AboutWindow.setWindowTitle(QCoreApplication.translate("AboutWindow", u"About | Randomize Me", None))
         self.quit_btn.setText(QCoreApplication.translate("AboutWindow", u" close", None))
-        self.label_3.setText(QCoreApplication.translate("AboutWindow", u"Randomize Me! ver. 1", None))
+        self.label_3.setText(QCoreApplication.translate("AboutWindow", u"Randomize Me! ver. 1.1", None))
         self.label.setText(QCoreApplication.translate("AboutWindow", u"License", None))
         self.label_2.setText(QCoreApplication.translate("AboutWindow", u"Attributions", None))
         self.attribution_text.setHtml(QCoreApplication.translate("AboutWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -112,21 +112,28 @@ class Ui_AboutWindow(object):
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'Yu Gothic UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Yu Gothic UI'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Thank you sophia for making the lists :3</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\""
-                        " font-size:10pt;\">and thank you to the crazy person reading this that is using my silly lil software &lt;3</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style="
+                        "\" font-size:10pt;\">and thank you to the crazy person reading this that is using my silly lil software &lt;3</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">The following open-source packages were used in this software:</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Pyside6/Qt for Python (LGPL v3)</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-bloc"
-                        "k-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">The following media were used in this software:</span><br /><br /><span style=\" font-size:10pt; font-weight:700;\">cross icon</span><span style=\" font-size:10pt;\"> (CC BY 4.0 DEED): Situ Herrera (https://icon-icons.com/users/8KiWgJSvFL3JcLJ5k5IqX/icon-sets/)</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">external icon</span><span style=\" font-size:10pt;\"> (&quot;Flaticon license&quot;): Vaadin (https://www.flaticon.com/authors/vaadin)</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">table icon</span><span style=\" font-size:10pt; font-wei"
-                        "ght:700; font-style:italic;\"> </span><span style=\" font-size:10pt;\">(SIL Open Font License): Dave Gandy (https://www.iconfinder.com/icons/1608863/table_icon)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Pyside6/Qt for Python (LGPL v3) (https://pypi.org/project/PySide6/)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:"
+                        "0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">Pyinstaller (GPL v2) (https://pyinstaller.org/)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">UwU-inator (GPL v3) (https://github.com/senguyen1011/UwUinator)</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">The following media were used in this software:</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-lef"
+                        "t:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">construction worker</span><span style=\" font-size:10pt;\"> (1.0) (CC BY 2.0 DEED): Tony Alter (https://www.flickr.com/people/78428166@N00)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">construction worker</span><span style=\" font-size:10pt;\"> (1.1) (CC 0.0/Public Domain): No known copyright or copyright holder<br /></span><span style=\" font-size:10pt; font-weight:700;\">cross icon</span><span style=\" font-size:10pt;\"> (CC BY 4.0 DEED): Situ Herrera (https://icon-icons.com/users/8KiWgJSvFL3JcLJ5k5IqX/icon-sets/)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; "
+                        "-qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">external icon</span><span style=\" font-size:10pt;\"> (Flaticon license): Vaadin (https://www.flaticon.com/authors/vaadin)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">table icon</span><span style=\" font-size:10pt; font-weight:700; font-style:italic;\"> </span><span style=\" font-size:10pt;\">(SIL Open Font License): Dave Gandy (https://www.iconfinder.com/icons/1608863/table_icon)</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:700;\">filter icon</span><span style=\" font-size:10pt;\"> (Apache 2.0): akveo (https://icon-icons.com/users/2j7Ni9Qgct0HtmWmLGnLj/icon-sets/)</span></p></body></html>", None))
         self.license_text.setHtml(QCoreApplication.translate("AboutWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"

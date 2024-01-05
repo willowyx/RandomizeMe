@@ -73,7 +73,7 @@
          </font>
         </property>
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter a numerical value for &amp;quot;seeded&amp;quot; text generation (for more info open the prefs menu and press &amp;quot;help&amp;quot; ^_^ )&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter a numerical value for &amp;quot;seeded&amp;quot; text generation&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>0000000000</string>
@@ -180,7 +180,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <x>0</x>
      <y>0</y>
      <width>543</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -216,11 +216,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
-   </property>
-  </action>
-  <action name="actionHelp">
-   <property name="text">
-    <string>Help</string>
    </property>
   </action>
   <action name="actionPreferences">

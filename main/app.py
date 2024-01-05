@@ -1,22 +1,15 @@
 import sys
 import os
+import data
 import importlib.resources
 from PySide6 import QtWidgets as qtw
-# from PySide6.QtWidgets import QApplication
-
-from chart.chartview import ChartView
-from about.aboutview import AboutView
-from prefs.prefsview import PrefsView
 from main.UI.main import Ui_MainWindow
 from genedit import generator
-import data
+
 
 def load_resource(package, resource_name):
     return importlib.resources.read_text(package, resource_name)
 
-
-# load_resource('genedit', 'generator')
-# load_resource('chart', 'chartview')
 
 class Randomize(qtw.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -34,8 +27,6 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
         self.open_chart_btn.clicked.connect(self.showchart)
         self.actionShow_chart.triggered.connect(self.showchart)
 
-        self.chart = None
-
         self.actionAbout.triggered.connect(self.showabout)
 
         self.actionPreferences.triggered.connect(self.showprefs)
@@ -44,8 +35,17 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
     def getoutput(self, nogensval):
         self.text_output.setText(generator.returnstr(nogensval))
 
+    def uwuify(self):
+        self.randomize_btn.setText('wandomize m-me!')
+        self.quit_btn.setText('q-quit')
+        self.open_chart_btn.setText('open chawt')
+        self.prefs_btn.setText('pwefs')
+        self.enter_sval_btn('e-enter')
+        self.text_output.setText('p-pwess \"wandomize me!\" to genewate wandom text, ow enter a genewation seed and'
+                                 'pwess \"entew\"')
+
     def getsval(self):
-        with open(data.getsval(), 'r') as f:
+        with open(data.getModulePath('sval'), 'r') as f:
             f.seek(0, os.SEEK_END)
             pos = f.tell() - 2
             while pos > 0 and f.read(1) != '\n':
@@ -60,21 +60,29 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
         self.getoutput(seval)
 
     def showchart(self):
+        from chart.chartview import ChartView
         self.chart = ChartView()
         self.chart.popChart()
         self.chart.show()
 
     def showabout(self):
+        from about.aboutview import AboutView
         self.about = AboutView()
         self.about.show()
 
     def showprefs(self):
+        import prefs.prefsview
+        from prefs.prefsview import PrefsView
         self.prefs = PrefsView()
+
+        prefs.prefsview.prefscan('uwu')
+
         self.prefs.show()
 
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)
+    app.setStyle('Fusion')
     w = Randomize()
     w.show()
     sys.exit(app.exec())
