@@ -40,17 +40,18 @@ def returnstr(pre=None):
             if 2 < len(pre) < 10:
                 pre = str(pre) * 5
                 pre = pre[:10]
-            if len(pre) < 2:
+            if len(pre) <= 2:
                 pre = str(pre) * 10
             if len(pre) > 10:
                 pre = pre[:10]
             sval = pre  # sanitized & validated sval
-            # print('nogen sval ' + sval)
+            print('nogen sval result: ' + sval)
         except:
             sval = rnum()
+            print('invalid sval, fallback to random generation')
     else:
         sval = str(rnum())  # generate number
-        # print('gen sval ' + sval)
+        print('gen sval result: ' + sval)
 
     # print("rnum call getstr: " + str(pre))
     textout = "Your "
