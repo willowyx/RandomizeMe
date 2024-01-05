@@ -4,7 +4,6 @@ import data
 import importlib.resources
 from PySide6 import QtWidgets as qtw
 
-import prefs.prefsview
 from main.UI.main import Ui_MainWindow
 from genedit import generator
 
@@ -16,15 +15,18 @@ def load_resource(package, resource_name):
 queuePrefData = []
 queueWindowData = []
 
+
 def setqpd(value):
     queuePrefData.append(value)
     if value is None:
         return queuePrefData
 
+
 def setqwd(value):
     queueWindowData.append(value)
     if value is None:
         return queueWindowData
+
 
 class Randomize(qtw.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -49,7 +51,6 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
 
     def prefscan(self):
         import re
-        import prefs.prefsview
         open(data.getModulePath('prefs'), 'a').close()
         # check uwu
         with open(data.getModulePath('prefs'), 'r') as file:
@@ -59,7 +60,6 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
                 uwu_value = match.group(1)
                 print('uwu toggle state loaded as ' + uwu_value)
                 if uwu_value == '1':
-                    import prefs.prefsview
                     print('queuing data for instantiated windows...')  # debug
                     self.uwuify_main()
                     print('queuing data for other windows...')  # debug
