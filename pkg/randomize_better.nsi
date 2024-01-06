@@ -8,9 +8,11 @@ InstallDir $PROGRAMFILES64\RandomizeMe
 !define APPDATA "$APPDATA\RandomizeMe"
 
 !define APPNAME "Randomize Me"
-!define APPNAMEANDVERSION "Randomize Me Installer v1.0.1"
+!define APPNAMEANDVERSION "willowyx/RandomizeMe v1.1.4"
 
 name "${APPNAME}"
+
+BrandingText "${APPNAMEANDVERSION}"
 
 !define MUI_ICON "appdata\logo.ico"
 !define MUI_UNICON "appdata\unins.ico"
@@ -63,6 +65,7 @@ File appdata\app.exe
 File appdata\LICENSE.txt
 File appdata\README.md
 File appdata\attributions.txt
+File appdata\attributions.html
 
 ;SetOutPath $INSTDIR\data
 SetOutPath $APPDATA\RandomizeMe
@@ -90,6 +93,7 @@ Delete $INSTDIR\app.exe
 Delete $INSTDIR\LICENSE.txt
 Delete $INSTDIR\README.md
 Delete $INSTDIR\attributions.txt
+Delete $INSTDIR\attributions.html
 
 Delete $APPDATA\RandomizeMe\lists.py
 Delete $APPDATA\RandomizeMe\logo.png
@@ -97,6 +101,7 @@ Delete $APPDATA\RandomizeMe\logo.ico
 Delete $APPDATA\RandomizeMe\unins.png
 Delete $APPDATA\RandomizeMe\unins.ico
 Delete $APPDATA\RandomizeMe\sval.txt
+Delete $APPDATA\RandomizeMe\prefs.txt
 Delete $APPDATA\RandomizeMe\__init__.py
 Delete $APPDATA\RandomizeMe\__pycache__\lists.cpython-38.pyc
 Delete "$desktop\Randomize Me.lnk"
