@@ -3,7 +3,13 @@ import re
 import os
 import data
 import importlib.util
-module_path = os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+
+module_path = ''
+if data.getsysname() == 'Windows':
+    module_path = os.path.join(os.getenv('appdata'), 'RandomizeMe/lists.py')
+elif data.getsysname() == 'Darwin':
+    module_path = os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/lists.py')
+
 spec = importlib.util.spec_from_file_location('lists', module_path)
 lists = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(lists)
@@ -34,26 +40,27 @@ def returnstr(pre=None):
             if 2 < len(pre) < 10:
                 pre = str(pre) * 5
                 pre = pre[:10]
-            if len(pre) < 2:
+            if len(pre) <= 2:
                 pre = str(pre) * 10
             if len(pre) > 10:
                 pre = pre[:10]
             sval = pre  # sanitized & validated sval
-            # print('nogen sval ' + sval)
+            print('nogen sval result: ' + sval)
         except:
             sval = rnum()
+            print('invalid sval, fallback to random generation')
     else:
         sval = str(rnum())  # generate number
-        # print('gen sval ' + sval)
+        print('gen sval result: ' + sval)
 
     # print("rnum call getstr: " + str(pre))
     textout = "Your "
-    with open(data.getsval(), 'a') as f:
+    with open(data.getModulePath('sval'), 'a') as f:
         f.write(sval + '\n')
         f.close()
-    slsize = os.path.getsize(data.getsval())
+    slsize = os.path.getsize(data.getModulePath('sval'))
     if slsize > 10000:
-        with open(data.getsval(), 'w') as f:
+        with open(data.getModulePath('sval'), 'w') as f:
             f.write(sval + '\nnote: file exceeded 10kb and was overwritten\n')
             f.close()
 
