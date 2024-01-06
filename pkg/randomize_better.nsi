@@ -8,14 +8,14 @@ InstallDir $PROGRAMFILES64\RandomizeMe
 !define APPDATA "$APPDATA\RandomizeMe"
 
 !define APPNAME "Randomize Me"
-!define APPNAMEANDVERSION "Randomize Me Installer v1"
+!define APPNAMEANDVERSION "Randomize Me Installer v1.0.1"
 
 name "${APPNAME}"
 
 !define MUI_ICON "appdata\logo.ico"
 !define MUI_UNICON "appdata\unins.ico"
 
-!define MUI_WELCOMEFINISHPAGE_BITMAP "appdata\Construction_worker.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "appdata\Construction-worker-new.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP "appdata\cat.bmp"
 !define MUI_HEADERIMAGE_RIGHT
