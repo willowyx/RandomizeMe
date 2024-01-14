@@ -36,7 +36,7 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
         self.quit_btn.clicked.connect(self.close)
         self.actionQuit.triggered.connect(self.close)
 
-        self.randomize_btn.clicked.connect(self.getoutput)
+        self.randomize_btn.clicked.connect(lambda: self.getoutput(None))
         self.randomize_btn.clicked.connect(self.getsval)
 
         self.enter_sval_btn.clicked.connect(self.usesval)
@@ -68,8 +68,13 @@ class Randomize(qtw.QMainWindow, Ui_MainWindow):
                     setqwd('CHART_UWU')  # chart window
                     setqwd('ABOUT_UWU')  # about window
 
-    def getoutput(self, nogensval):
-        self.text_output.setText(generator.returnstr(nogensval))
+    def getoutput(self, nogensval=None):
+        if nogensval is not None:
+            print('\nsval provided: '+str(nogensval))
+            self.text_output.setText(generator.returnstr(nogensval))
+        else:
+            print('\nno sval ('+str(nogensval)+')')
+            self.text_output.setText(generator.returnstr(nogensval))
 
     def uwuify_main(self):
         self.randomize_btn.setText('wandomize m-me!')

@@ -48,7 +48,7 @@ def returnstr(pre=None):
             print('nogen sval result: ' + sval)
         except:
             sval = rnum()
-            print('invalid sval, fallback to random generation')
+            print('fallback to random generation')
     else:
         sval = str(rnum())  # generate number
         print('gen sval result: ' + sval)
