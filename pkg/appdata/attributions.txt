@@ -7,6 +7,7 @@ The following open-source packages were used in this software:
 Pyside6/Qt for Python (LGPL v3) (https://pypi.org/project/PySide6/)
 Pyinstaller (GPL v2) (https://pyinstaller.org/)
 Packages - Stéphane Sudre (BSD) (http://s.sudre.free.fr/Software/Packages/about.html)
+Nullsoft Scriptable Install System (zlib) (https://nsis.sourceforge.io/)
 UwU-inator (GPL v3) (https://github.com/senguyen1011/UwUinator)
 
 

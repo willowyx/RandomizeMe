@@ -8,7 +8,7 @@ InstallDir $PROGRAMFILES64\RandomizeMe
 !define APPDATA "$APPDATA\RandomizeMe"
 
 !define APPNAME "Randomize Me"
-!define APPNAMEANDVERSION "willowyx/RandomizeMe v1.1.4"
+!define APPNAMEANDVERSION "willowyx/RandomizeMe v1.1.6"
 
 name "${APPNAME}"
 
@@ -103,14 +103,14 @@ Delete $APPDATA\RandomizeMe\unins.ico
 Delete $APPDATA\RandomizeMe\sval.txt
 Delete $APPDATA\RandomizeMe\prefs.txt
 Delete $APPDATA\RandomizeMe\__init__.py
-Delete $APPDATA\RandomizeMe\__pycache__\lists.cpython-38.pyc
+Delete $APPDATA\RandomizeMe\__pycache__\lists.cpython-312.pyc
 Delete "$desktop\Randomize Me.lnk"
 
 # Delete the uninstaller
 Delete $INSTDIR\unins000.exe
 
 # Delete directories
-RMDir $APPDATA\RandomizeMe\__pycache__
+RMDir /r $APPDATA\RandomizeMe\__pycache__
 RMDir $APPDATA\RandomizeMe
 RMDir $INSTDIR
 SectionEnd
