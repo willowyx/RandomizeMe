@@ -19,11 +19,8 @@ yes, of course you do.
 ### _what features can I expect in the future?_
 
 in no particular order, these are some things I'm planning to add soon:
-1. mac release. also maybe one for arch btw
-2. fusion ui (or at least a dark mode)
-3. uwu mode (obviously)
-4. maybe a gui list or sentence editor, not sure if that's really feasible tho
-5. some sort of better error handler
+1. if I have time I'll try to package it for arch btw
+2. maybe a gui list or sentence editor, not sure if that's really feasible tho
 
 ### _why is it being flagged by my antivirus?_
 
@@ -38,10 +35,6 @@ If you're not sure how to go about it, start with these resources:
 - [Install python](https://www.python.org/downloads/)
 - [Install pyinstaller](https://www.pyinstaller.org/en/stable/installation.html)
 - [Use pyinstaller](https://pyinstaller.org/en/v4.1/usage.html)
-
-Additional notes:
-- You'll also need to install the dependencies listed in ```requirements.txt``` in the project's virtual environment.
-- An NSIS install script ```randomize_better.nsi``` is included in the ```pkg``` directory if you wish to use the NSIS installer.
 
 ---
 

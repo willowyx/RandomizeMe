@@ -51,12 +51,15 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
                 ufile_path += '\\RandomizeMe'
                 try:
                     os.startfile(ufile_path)
-                    self.restart_label.setText('You must quit the app before uninstalling')
+                    self.restart_label.setText('Run \"unins000.exe\" after quitting the app')
                 except:
                     self.restart_label.setText('could not locate directory')
             elif data.getsysname() == 'Darwin':
-                # return os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/unins.app')
-                self.restart_label.setText('uninstaller does not exist')
+                # need to check the line below
+                unins_darwin = os.path.join(os.path.expanduser('~/Library/Application Support'), 'RandomizeMe/unins.sh')
+                subprocess.call(["open", "-R", unins_darwin])
+                # fallback in case the above doesn't work
+                self.restart_label.setText('uninstall script located in Application Support/RandomizeMe')
 
         self.quit_btn.clicked.connect(self.close)
 
@@ -92,7 +95,6 @@ class PrefsView(qtw.QWidget, Ui_PrefsWindow):
             with open(data.getModulePath('prefs'), 'w') as f:
                 f.write('PREFS_UWU=1\n')
                 f.close()
-        # elif not self.uwuify_btn.isChecked():
         else:
             with open(data.getModulePath('prefs'), 'w') as f:
                 f.write('PREFS_UWU=0\n')
