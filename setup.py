@@ -3,6 +3,6 @@ from setuptools import setup, find_packages
 
 setup(
     name="RandomizeMe",
-    version="1.1.0-pre1",
+    version="2.0.0",
     packages=find_packages(),
 )

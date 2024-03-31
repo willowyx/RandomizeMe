@@ -1,3 +1,12 @@
+# pronouns
+ListF = [
+    "Your",
+    "My",
+    "That",
+    "These",
+    "Those"
+]
+
 # nouns
 ListA = [
     "hair",
@@ -52,10 +61,12 @@ ListA = [
     "right ventricle",
     "aorta",
     "pulmonary artery",
-    "balls",
-    "bussy",
     "little tiny baby toe",
-    "fugg boots"
+    "fugg boots",
+    "kneecaps",
+    "morning hair",
+    "adopt-a-highway name",
+    "fingernail clippings"
 ]
 # some had to be removed for internet purposes, sorry :(
 # if it's any consolation you can add them back here tho
@@ -114,7 +125,8 @@ ListB = [
     "feels completely",
     "feel completely",
     "sounds completely",
-    "sound completely"
+    "sound completely",
+    "look kinda"
 ]
 
 # adjectives
@@ -155,7 +167,11 @@ ListC = [
     "absolutely WILD",
     "weird in such a good way",
     "markedly interesting (/pos)",
-    "goofy in a silly way"
+    "goofy in a silly way",
+    "weird lmao",
+    "so scrungly",
+    "kawaii 🌸",
+    "eepy"
 ]
 
 # u <3
@@ -201,7 +217,13 @@ ListD = [
     "goon",
     "ragamuffin",
     "panhandler",
-    "horseplayer"
+    "horseplayer",
+    "cuh",
+    "bruh",
+    "bluh",
+    "bro (gender neutral)",
+    "senpai",
+    "onii-chan"
 ]
 
 # emotes

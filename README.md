@@ -16,17 +16,26 @@ or if you're feeling extra fancy you can also change the sentences if you want
 
 yes, of course you do.
 
-### _what features can I expect in the future?_
+### _will this project be updated in the future?_
 
-in no particular order, these are some things I'm planning to add soon:
-1. if I have time I'll try to package it for arch btw
-2. maybe a gui list or sentence editor, not sure if that's really feasible tho
+probably not. This was my first real application and I learned a lot, but I think it's time for me to move on to new
+projects :)
+
+### _how do I uninstall?_
+
+### For Mac
+Run the ```unins.sh``` script using Terminal. You can use the following command (make sure to elevate):
+
+```sudo sh ~/Library/Application\ Support/RandomizeMe/unins.sh```
+### For Windows
+Run ```unins000.exe``` in the following directory:
+
+```C:\Program Files\RandomizeMe\unins000.exe```
 
 ### _why is it being flagged by my antivirus?_
 
-I went through extra steps to make sure the releases are antivirus-friendly, but windows does rather frequently
-flag python executables because they're often used to write malicious content. If you'd rather
-check the code and build it yourself, you can use the steps below.
+It really shouldn't be getting flagged, but there's not very much I can do. If you want though, you can build it
+yourself for peace of mind. I added some steps below if you wish to do so!
 
 ### _how can I build it myself?_
 you can use the ```pkg``` directory  to find build files you'll need, and use ```pyinstaller``` or a similar tool to build it.

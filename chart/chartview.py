@@ -34,8 +34,8 @@ class ChartView(qtw.QWidget, Ui_ChartWindow):
     def popChart(self):
         ListsView = QTableView()
         model = QStandardItemModel()
-        for a, b, c, d, e in zip_longest(lists.ListA, lists.ListB, lists.ListC, lists.ListD, lists.ListE):
-            items = [QStandardItem(item) if item is not None else QStandardItem('') for item in (a, b, c, d, e)]
+        for f, a, b, c, d, e in zip_longest(lists.ListF, lists.ListA, lists.ListB, lists.ListC, lists.ListD, lists.ListE):
+            items = [QStandardItem(item) if item is not None else QStandardItem('') for item in (f, a, b, c, d, e)]
             model.appendRow(items)
         self.ListsView.setModel(model)
         self.ListsView.show()
